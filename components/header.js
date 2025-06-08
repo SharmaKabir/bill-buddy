@@ -1,3 +1,6 @@
+"use client";
+
+import { useStoreUser} from "@/hooks/use-store-user";
 import React from "react";
 import {
   ClerkProvider,
@@ -8,8 +11,13 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 const Header = () => {
+
+    const {isLoading } = useStoreUser();
+
+
+
   return (
-    <div>
+    <header className="fixed top-0 w-full border">
       <SignedOut>
         <SignInButton />
         <SignUpButton />
@@ -18,7 +26,7 @@ const Header = () => {
         <UserButton/>
       </SignedIn>
       
-    </div>
+    </header>
   );
 };
 
